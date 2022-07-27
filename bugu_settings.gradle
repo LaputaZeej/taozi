@@ -1,0 +1,213 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+ext {
+
+    AppExt = [
+            _BuguAppId  : "629889131adb2e38c9f5fc17",
+            _BuguAppkey : "0c0adaa2dd9b4fe99cec73fcc163ce7a",
+            _versionCode: 11,
+            _versionName: "1.0.0 beta"
+    ]
+
+    versions = [
+            compileSdkVersion: 30,
+            buildToolsVersion: "30.0.3",
+            minSdkVersion    : 22,
+            targetSdkVersion : 24,
+            kotlin_version   : '1.5.20',
+            gradle_version   : '7.0.0',
+            lifecycle_version: '2.4.0-alpha01',
+            retrofit         : '2.8.1',
+            okhttp           : '4.4.1',
+            nav_version      : '2.3.5',
+            room_version     : '2.3.0',
+            paging_version   : '3.0.1',
+            hilt_version     : '2.38.1',
+    ]
+
+    deps = [
+            // Kotlin
+            // [https://kotlinlang.org/api/latest/jvm/stdlib/]
+            "kotlin"                              : "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlin_version}",
+            "kotlin_reflect"                      : 'org.jetbrains.kotlin:kotlin-reflect:${versions.kotlin_version}',
+
+            // Android
+            "androidx_core"                       : "androidx.core:core-ktx:1.6.0",
+            "androidx_appcompat"                  : "androidx.appcompat:appcompat:1.3.0",
+            "androidx_fragment_fragment"          : "androidx.fragment:fragment:1.3.0",
+            "material"                            : "com.google.android.material:material:1.4.0",
+            "constraintlayout"                    : "androidx.constraintlayout:constraintlayout:2.1.0",
+            "annotation"                          : 'androidx.annotation:annotation:1.1.0',
+            "multidex"                            : 'androidx.multidex:multidex:2.0.1',
+            "work_runtime"                        : 'androidx.work:work-runtime:2.5.0',
+            "activity_ktx"                        : "androidx.activity:activity-ktx:1.2.0",
+            "fragment_ktx"                        : "androidx.fragment:fragment-ktx:1.2.0",
+            "recyclerview"                        : "androidx.recyclerview:recyclerview:1.2.1",
+            "viewpager2"                          : "androidx.viewpager2:viewpager2:1.0.0",
+
+            // Lifecycle
+            // [https://developer.android.google.cn/jetpack/androidx/releases/lifecycle]
+            // [https://developer.android.com/jetpack/androidx/releases/lifecycle]
+            "lifecycle_viewmodel"                 : "androidx.lifecycle:lifecycle-viewmodel-ktx:${versions.lifecycle_version}",
+            "lifecycle_livedata"                  : "androidx.lifecycle:lifecycle-livedata-ktx:${versions.lifecycle_version}",
+            "lifecycle_runtime"                   : "androidx.lifecycle:lifecycle-runtime-ktx:${versions.lifecycle_version}",
+            "lifecycle_viewmodel_savedstate"      : "androidx.lifecycle:lifecycle-viewmodel-savedstate:${versions.lifecycle_version}",
+            "lifecycle_compiler"                  : "androidx.lifecycle:lifecycle-compiler:${versions.lifecycle_version}",
+            "lifecycle_common_java8"              : "androidx.lifecycle:lifecycle-common-java8:${versions.lifecycle_version}",
+            "lifecycle_service"                   : "androidx.lifecycle:lifecycle-service:${versions.lifecycle_version}",
+            "lifecycle_process"                   : "androidx.lifecycle:lifecycle-process:${versions.lifecycle_version}",
+            "lifecycle_reactivestreams_ktx"       : "androidx.lifecycle:lifecycle-reactivestreams-ktx:${versions.lifecycle_version}",
+            "work_testing"                        : "androidx.arch.core:core-testing:2.1.0",
+            // 根据 Lifecycle 2.2.0 版本说明，不再发布 lifecycle-extensions 工件。
+            "lifecycle_extensions"                : "androidx.lifecycle:lifecycle-extensions:${versions.lifecycle_version}",
+
+            // Navigation
+            // [https://developer.android.google.cn/jetpack/androidx/releases/navigation]
+            // [https://developer.android.com/jetpack/androidx/releases/navigation]
+            "navigation_fragment"                 : "androidx.navigation:navigation-fragment-ktx:${versions.nav_version}",
+            "navigation_ui_ktx"                   : "androidx.navigation:navigation-ui-ktx:${versions.nav_version}",
+            "navigation_dynamic_features_fragment": "androidx.navigation:navigation-dynamic-features-fragment:${versions.nav_version}",
+            "navigation_testing"                  : "androidx.navigation:navigation-testing:${versions.nav_version}",
+            "navigation_classpath"                : "androidx.navigation:navigation-safe-args-gradle-plugin:${versions.nav_version}",
+
+            // Room
+            // [https://developer.android.google.cn/jetpack/androidx/releases/room]
+            // [https://developer.android.com/jetpack/androidx/releases/room]
+            "room_runtime"                        : "androidx.room:room-runtime:${versions.room_version}",
+            "room_compiler"                       : "androidx.room:room-compiler:${versions.room_version}",
+            "room_ktx"                            : "androidx.room:room-ktx:${versions.room_version}",
+            "room_guava"                          : "androidx.room:room-guava:${versions.room_version}",
+            "room_testing"                        : "androidx.room:room-testing:${versions.room_version}",
+            "room_paging"                         : "androidx.room:room-paging:2.4.0-alpha04",
+
+            // Paging
+            // [https://developer.android.google.cn/jetpack/androidx/releases/paging]
+            // [https://developer.android.com/jetpack/androidx/releases/paging]
+            "paging_runtime"                      : "androidx.paging:paging-runtime:${versions.paging_version}",
+            "paging_common"                       : "androidx.paging:paging-common:${versions.paging_version}",
+
+            // Coroutine
+            // [https://kotlinlang.org/docs/coroutines-overview.html#how-to-start]
+            "coroutines_core"                     : 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2',
+            "coroutines_android"                  : 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.2',
+
+            // Test
+            "junit"                               : "junit:junit:4.2",
+            "junit_ext"                           : "androidx.test.ext:junit:1.1.1",
+            "espresso"                            : "androidx.test.espresso:espresso-core:3.2.0",
+            "rules"                               : "androidx.test:rules:1.3.0@aar",
+
+            // 路由
+            // Arouter[https://github.com/alibaba/ARouter]
+            "arouter_api"                         : 'com.alibaba:arouter-api:1.5.1',
+            "arouter_compiler"                    : 'com.alibaba:arouter-compiler:1.5.1',
+
+            // 代码控制
+            // Javapoet[https://github.com/square/javapoet]
+            // Kotlinpoet[https://github.com/square/kotlinpoet]
+            // auto[https://github.com/google/auto]
+            "javapoet"                            : 'com.squareup:javapoet:1.13.0',
+            "auto_service"                        : 'com.google.auto.service:auto-service:1.0-rc4',
+            "auto_service_annotationProcessor"    : 'com.google.auto.service:auto-service:1.0-rc4',
+            "asm"                                 : "org.ow2.asm:asm:7.0",
+            "asm_commons"                         : "org.ow2.asm:asm-commons:7.0",
+
+            // 序列化
+            // gson[https://github.com/google/gson]
+            // protobuf[https://github.com/protocolbuffers/protobuf]
+            // mmkv[https://github.com/Tencent/MMKV]
+            "gson"                                : 'com.google.code.gson:gson:2.8.5',
+            "protobuf_java"                       : 'com.google.protobuf:protobuf-java:3.11.0',
+            "protobuf_java_util"                  : 'com.google.protobuf:protobuf-java-util:3.11.0',
+            "mmkv"                                : "com.tencent:mmkv-static:1.2.10",
+
+            // Communication
+            // retrofit2[https://github.com/square/retrofit]
+            // okhttp[https://github.com/square/okhttp]
+            // paho[https://github.com/eclipse/paho.mqtt.android]
+            "retrofit2"                           : "com.squareup.retrofit2:retrofit:${versions.retrofit}",
+            "retrofit2_converter_gson"            : "com.squareup.retrofit2:converter-gson:${versions.retrofit}",
+            "okhttp3"                             : "com.squareup.okhttp3:okhttp:${versions.okhttp}",
+            "okhttp3_logger"                      : "com.squareup.okhttp3:logging-interceptor:${versions.okhttp}",
+            "mqtt_paho"                           : "org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.2.1",
+            "mqtt_paho_service"                   : "org.eclipse.paho:org.eclipse.paho.android.service:1.1.1",
+
+            // 串口
+            // [https://github.com/cepr/android-serialport-api]
+            // [https://code.google.com/archive/p/android-serialport-api/downloads]
+
+            // ImageLoader
+            // glide[https://github.com/bumptech/glide]
+            // coil[https://github.com/coil-kt/coil]
+            // https://github.com/wasabeef/glide-transformations
+            "glide"                               : "com.github.bumptech.glide:glide:4.11.0",
+            "coil"                                : "io.coil-kt:coil:1.3.0",
+            "glide-ext"                           : 'jp.wasabeef:glide-transformations:4.3.0',
+
+            // Hilt
+            // [https://developer.android.google.cn/jetpack/androidx/releases/hilt]
+            // [https://developer.android.com/jetpack/androidx/releases/hilt]
+            // [https://dagger.dev/hilt/gradle-setup]
+            "hilt"                                : "com.google.dagger:hilt-android:${versions.hilt_version}",
+            "hilt_compiler"                       : "com.google.dagger:hilt-compiler:${versions.hilt_version}",
+            "hilt_classpath"                      : "com.google.dagger:hilt-android-gradle-plugin:${versions.hilt_version}",
+            // dagger.hilt.android.plugin
+
+
+            // UI&Android
+            // smart_swipe[https://github.com/luckybilly/SmartSwipe]
+            // picker_view[https://github.com/Bigkoo/Android-PickerView]
+            // pictureselector[https://github.com/LuckSiege/PictureSelector]
+            // permissionx[https://github.com/guolindev/PermissionX]
+            // immersionbar[https://github.com/gyf-dev/ImmersionBar]
+            "smart_swipe"                         : "com.billy.android:smart-swipe:1.0.8",
+            "smart_swipe_x"                       : "com.billy.android:smart-swipe-x:1.0.0",
+            "smart_refresh_layout"                : "com.scwang.smartrefresh:SmartRefreshLayout:1.1.0",
+            "smart_refresh_layout_header"         : "com.scwang.smartrefresh:SmartRefreshHeader:1.1.0",
+            "picker_view"                         : "com.contrarywind:Android-PickerView:4.1.0",
+            "pictureselector"                     : "io.github.lucksiege:pictureselector:v2.7.3-rc06",
+            "permissionx"                         : "com.guolindev.permissionx:permissionx:1.5.0",
+            "immersionbar"                        : "com.geyifeng.immersionbar:immersionbar:3.2.2",
+
+
+            // 内存优化
+            // leakcanary [https://square.github.io/leakcanary/]
+            // debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.7'
+            "leakcanary"                          : "com.squareup.leakcanary:leakcanary-android:2.7",
+
+            // ViewBindingExt
+            // https://github.com/androidbroadcast/ViewBindingPropertyDelegate
+            "viewbindingpropertydelegate"         : 'com.github.kirich1409:viewbindingpropertydelegate-noreflection:1.5.0-beta01',
+
+            // filedownloader
+            // https://github.com/lingochamp/FileDownloader/blob/master/README-zh.md
+            "filedownloader"                      : 'com.liulishuo.filedownloader:library:1.7.7',
+
+            // "zxing"                               : 'com.google.zxing:core:3.4.0',
+            "zxing"                               : 'com.journeyapps:zxing-android-embedded:3.5.0',
+            "zxing_bga"                           : 'cn.bingoogolapple:bga-qrcode-zxing:1.2.5',
+            // ZXingLite
+            // https://github.com/jenly1314/ZXingLite
+            "zxing_lite"                               : 'com.king.zxing:zxing-lite:1.1.9-androidx',
+
+            // hawk
+            // https://github.com/orhanobut/hawk
+            "hawk"                                : 'com.orhanobut:hawk:2.0.1',
+
+            //navigation
+            "navigationfragment"                  : 'androidx.navigation:navigation-fragment-ktx:2.3.5',
+            "navigationui"                        : 'androidx.navigation:navigation-ui-ktx:2.3.5',
+            //Navigation Feature module Support
+            "navigationdynamic"                   : 'androidx.navigation:navigation-dynamic-features-fragment:2.3.5',
+
+            // 视频播放
+            // https://github.com/CarGuo/GSYVideoPlayer
+            "gsy_all"                             : 'com.github.CarGuo.GSYVideoPlayer:GSYVideoPlayer:v8.1.7-release-jitpack',
+
+            // 图片压缩
+            // https://github.com/Curzibn/Luban
+            "luban"                                    : 'top.zibin:Luban:1.1.8'
+
+
+    ]
+
+}

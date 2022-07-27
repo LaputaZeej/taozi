@@ -1,0 +1,78 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
+
+def app_version_code = 1
+def app_version_name = "1.0.0"
+
+android {
+    compileSdk versions.compileSdkVersion
+    buildToolsVersion versions.buildToolsVersion
+
+    defaultConfig {
+        applicationId "com.bugull.android"
+        minSdk versions.minSdkVersion
+        targetSdk versions.targetSdkVersion
+        versionCode app_version_code
+        versionName app_version_name
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation deps.androidx_core
+    implementation deps.androidx_appcompat
+    implementation deps.material
+    implementation deps.constraintlayout
+
+    implementation deps.lifecycle_viewmodel
+    implementation deps.lifecycle_livedata
+    implementation deps.lifecycle_runtime
+    implementation deps.lifecycle_viewmodel_savedstate
+    implementation deps.lifecycle_process
+
+    implementation deps.coroutines_core
+    implementation deps.coroutines_android
+    implementation deps.gson
+    implementation deps.mmkv
+    implementation deps.retrofit2
+    implementation deps.retrofit2_converter_gson
+    implementation deps.okhttp3
+    implementation deps.okhttp3_logger
+    implementation deps.mqtt_paho
+    implementation deps.mqtt_paho_service
+
+    implementation deps.glide
+    implementation deps.coil
+    implementation deps.hilt
+    kapt deps.hilt_compiler
+
+    implementation deps.smart_swipe
+    implementation deps.smart_swipe_x
+    implementation deps.picker_view
+    implementation deps.pictureselector
+    implementation deps.permissionx
+    implementation deps.immersionbar
+    
+    testImplementation deps.junit
+    testImplementation deps.junit_ext
+    androidTestImplementation deps.espresso
+}
